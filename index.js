@@ -64,12 +64,12 @@ client.on('message', async (message) => {
         // Parse the mcapi.us response
         const body = await res.json()
 
-        const attachment = new Discord.MessageAttachment(Buffer.from(body.favicon.substr('data:image/png;base64,'.length), 'base64'), "icon.png")
+        const attachment = new Discord.MessageAttachment(Buffer.from("https://proxy.mc-market.org/f55a14af93f66030c17c4a6cf19d1dfb1de51bb5?url=https%3A%2F%2Fi.gyazo.com%2F12ea464af0e608db5aa5f487285d8416.png"), "icon.png")
 
         const embed = new Discord.MessageEmbed()
             .setAuthor(config.ipAddress)
-            .attachFiles(attachment)
-            .setThumbnail("attachment://icon.png")
+            //.setImage("https://proxy.mc-market.org/f55a14af93f66030c17c4a6cf19d1dfb1de51bb5?url=https%3A%2F%2Fi.gyazo.com%2F12ea464af0e608db5aa5f487285d8416.png")
+            .setThumbnail("https://proxy.mc-market.org/f55a14af93f66030c17c4a6cf19d1dfb1de51bb5?url=https%3A%2F%2Fi.gyazo.com%2F12ea464af0e608db5aa5f487285d8416.png")
             .addField("Version", body.server.name)
             .addField("Connected", `${body.players.now} players`)
             .addField("Maximum", `${body.players.max} players`)
